@@ -13,13 +13,14 @@ npm run watch
 in Order to make a new page
 1. Make the page at --source--templates--example.jade
 2. in ```server.js``` at the top put ```, examplePage = require('jade').compileFile(__dirname + '/source/templates/example.jade');```
-3. then still in ```server.js``` after the above line you just created add this ``` app.get('/exampleSubject', function(req, res, next) {
-                                                                                        try {
-                                                                                            var html = examplePage({title: 'exampleTitle' });
-                                                                                            res.send(html);
-                                                                                            
-                                                                                        } catch (e) {
-                                                                                            next(e);
-                                                                                        }
-                                                                                    });
+3. then still in ```server.js``` after the below line you just created add this
+```
+app.get('/exampleSubject', function(req, res, next) {
+  try {
+  var html = examplePage({title: 'exampleTitle' });
+  res.send(html);
+    } catch (e) {
+      next(e);
+    }
+});
 ```
