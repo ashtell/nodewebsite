@@ -3,7 +3,7 @@ var express = require('express'),
     app = express(),
     home = require('jade').compileFile(__dirname + '/source/templates/homepage.jade'),
     contact = require('jade').compileFile(__dirname + '/source/templates/contact.jade'),
-    news = require('jade').compileFile(__dirname + '/source/templates/news.jade'),
+    programming = require('jade').compileFile(__dirname + '/source/templates/programming.jade'),
     aboutMe = require('jade').compileFile(__dirname + '/source/templates/about.jade'),
     march31 = require('jade').compileFile(__dirname + '/source/templates/blog/2017/march/31.jade'),
     april9 = require('jade').compileFile(__dirname + '/source/templates/blog/2017/april/9.jade');
@@ -41,10 +41,10 @@ app.get('/about', function(req, res, next) {
         next(e);
     }
 });
-app.get('/news', function(req, res, next) {
+app.get('/programming', function(req, res, next) {
     try {
-        var html = news({
-            title: 'News'
+        var html = programming({
+            title: 'Programming'
         });
         res.send(html);
 
